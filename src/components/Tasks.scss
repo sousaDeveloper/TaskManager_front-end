@@ -1,0 +1,22 @@
+.last-tasks {
+  overflow-y: auto;
+  max-height: 9.5rem;
+
+  &::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 0.3rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(262.71deg, #00d1ff -30.04%, #00ffa3 124.74%);
+    border-radius: 0.3rem;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
