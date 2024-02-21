@@ -1,6 +1,6 @@
 .last-tasks {
   overflow-y: auto;
-  max-height: 9.5rem;
+  max-height: 9.38rem;
 
   &::-webkit-scrollbar {
     width: 0.3rem;
@@ -18,5 +18,11 @@
 
   &::-webkit-scrollbar-thumb:hover {
     background: #555;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .last-tasks {
+    max-height: 100%;
   }
 }
