@@ -20,15 +20,13 @@ export default function Tasks() {
     fetchTasks();
   }, []);
 
-
-
   return (
     <>
       <header className="p-5 bg-gray-950">
         <h1 className="text-3xl font-bold">Dev List</h1>
       </header>
-      <div className="flex flex-col p-2">
-        <div className="flex flex-wrap gap-52 p-5">
+      <div className="flex p-2">
+        <div className="flex flex-wrap gap-28 p-5">
           <div className="flex flex-col">
             <h1 className="font-bold text-xl pb-3">Adicionar Tarefa</h1>
 
