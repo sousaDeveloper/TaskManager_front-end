@@ -41,7 +41,7 @@ export default function Tasks() {
                   .filter((task) => !task.isCompleted)
                   .map((lastTask, index) => (
                     <div key={index}>
-                      <TaskItem task={lastTask} />
+                      <TaskItem task={lastTask} fetchTasks={fetchTasks} />
                     </div>
                   ))}
               </div>

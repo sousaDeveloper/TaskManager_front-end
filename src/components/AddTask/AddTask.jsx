@@ -1,9 +1,14 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import CustomInput from "./CustomInput/CustomInput";
 import CustomButton from "./CustomButton/CustomButton";
 import axios from "axios";
 
-export default function AddTask() {
+AddTask.propTypes = {
+  fetchTasks: PropTypes.func,
+};
+
+export default function AddTask({ fetchTasks }) {
   const [task, setTask] = useState("");
 
   const onChange = (e) => {
@@ -12,10 +17,17 @@ export default function AddTask() {
 
   const handleTaskAddition = async () => {
     try {
+      if (task.length === 0) {
+        return console.log("Erro à arrumar depois");
+      }
+
       await axios.post("http://localhost:8000/tasks", {
         description: task,
         isCompleted: false,
       });
+
+      await fetchTasks();
+      setTask("");
     } catch (error) {
       console.log(error);
     }
