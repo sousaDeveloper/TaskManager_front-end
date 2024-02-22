@@ -18,7 +18,7 @@ export default function AddTask({ fetchTasks }) {
   const handleTaskAddition = async () => {
     try {
       if (task.length === 0) {
-        return console.log("Erro à arrumar depois");
+        return null;
       }
 
       await axios.post("http://localhost:8000/tasks", {

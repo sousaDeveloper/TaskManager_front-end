@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import TaskItem from "./TaskItem/TaskItem";
 import AddTask from "./AddTask/AddTask";
 import "./Tasks.scss";
@@ -16,10 +16,18 @@ export default function Tasks() {
     }
   };
 
+  const lastTasks = useMemo(() => {
+    return tasks.filter((task) => task.isCompleted === false);
+  }, [tasks]);
+
+  const completedTasks = useMemo(() => {
+    return tasks.filter((task) => task.isCompleted === true);
+  }, [tasks]);
+
   useEffect(() => {
     fetchTasks();
   }, []);
-
+  
   return (
     <>
       <header className="p-5 bg-gray-950">
@@ -37,26 +45,22 @@ export default function Tasks() {
             <div>
               <h3 className="font-bold text-xl mb-3">Tarefas não Concluídas</h3>
               <div className="last-tasks">
-                {tasks
-                  .filter((task) => !task.isCompleted)
-                  .map((lastTask, index) => (
-                    <div key={index}>
-                      <TaskItem task={lastTask} fetchTasks={fetchTasks} />
-                    </div>
-                  ))}
+                {lastTasks.map((lastTask, index) => (
+                  <div key={index}>
+                    <TaskItem task={lastTask} fetchTasks={fetchTasks} />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
           <div>
             <h2 className="font-bold text-xl">Tarefas Concluídas</h2>
             <div className="tasks-lists">
-              {tasks
-                .filter((task) => task.isCompleted)
-                .map((lastTask, index) => (
-                  <div key={index}>
-                    <TaskItem task={lastTask} />
-                  </div>
-                ))}
+              {completedTasks.map((lastTask, index) => (
+                <div key={index}>
+                  <TaskItem task={lastTask} />
+                </div>
+              ))}
             </div>
           </div>
         </div>
