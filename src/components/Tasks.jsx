@@ -27,11 +27,11 @@ export default function Tasks() {
   useEffect(() => {
     fetchTasks();
   }, []);
-  
+
   return (
     <>
       <header className="p-5 bg-gray-950">
-        <h1 className="text-3xl font-bold">Dev List</h1>
+        <h1 className="text-3xl font-bold mainText">Dev List</h1>
       </header>
       <div className="flex p-2">
         <div className="flex flex-wrap gap-28 p-5">
@@ -43,7 +43,7 @@ export default function Tasks() {
             </div>
 
             <div>
-              <h3 className="font-bold text-xl mb-3">Tarefas não Concluídas</h3>
+              <h3 className="font-bold text-xl mb-2">Tarefas não Concluídas</h3>
               <div className="last-tasks">
                 {lastTasks.map((lastTask, index) => (
                   <div key={index}>
@@ -54,7 +54,7 @@ export default function Tasks() {
             </div>
           </div>
           <div>
-            <h2 className="font-bold text-xl">Tarefas Concluídas</h2>
+            <h2 className="font-bold text-xl mb-2">Tarefas Concluídas</h2>
             <div className="tasks-lists">
               {completedTasks.map((lastTask, index) => (
                 <div key={index}>

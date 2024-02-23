@@ -34,7 +34,7 @@ export default function AddTask({ fetchTasks }) {
   };
 
   return (
-    <div className="addTaskContainer flex gap-2">
+    <div className="flex gap-2">
       <CustomInput value={task} onChange={onChange} />
       <CustomButton onClick={handleTaskAddition} />
     </div>

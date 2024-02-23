@@ -21,6 +21,13 @@
   }
 }
 
+.mainText {
+  background: linear-gradient(262.71deg, #000000 -30.04%, #58fdc1 124.74%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 @media screen and (max-width: 500px) {
   .last-tasks {
     max-height: 100%;

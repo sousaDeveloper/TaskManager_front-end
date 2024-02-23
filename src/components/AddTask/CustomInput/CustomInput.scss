@@ -1,50 +1,63 @@
 .form {
-  --width-of-input: 300px;
+  --width-of-input: 21.87rem;
   --border-height: 1px;
   --border-before-color: rgba(221, 221, 221, 0.39);
   --border-after-color: #5891ff;
   --input-hovered-color: #4985e01f;
   position: relative;
   width: var(--width-of-input);
+
+  .input {
+    transition: 0.3s;
+    border-radius: 0.2rem;
+    color: #fff;
+    font-size: 0.9rem;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+    border-bottom: var(--border-height) solid var(--border-before-color);
+
+    &:hover {
+      background: var(--input-hovered-color);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus ~ .input-border {
+      width: 100%;
+    }
+  }
+
+  .input-border {
+    position: absolute;
+    background: linear-gradient(262.71deg, #00d1ff -30.04%, #00ffa3 124.74%);
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+  }
 }
 
-.input {
-  border-radius: 0.2rem;
-  color: #fff;
-  font-size: 0.9rem;
-  background-color: transparent;
-  width: 100%;
-  box-sizing: border-box;
-  padding-inline: 0.5em;
-  padding-block: 0.7em;
-  border: none;
-  border-bottom: var(--border-height) solid var(--border-before-color);
+@media screen and (max-width: 740px) {
+  .form {
+    width: 20rem;
+  }
 }
 
-.input-border {
-  position: absolute;
-  background: linear-gradient(262.71deg, #00d1ff -30.04%, #00ffa3 124.74%);
-  width: 0%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  transition: 0.3s;
-}
-
-input:hover {
-  background: var(--input-hovered-color);
-}
-
-input:focus {
-  outline: none;
-}
-
-input:focus ~ .input-border {
-  width: 100%;
+@media screen and (max-width: 450px) {
+  .form {
+    width: 18rem;
+  }
 }
 
 @media screen and (max-width: 380px) {
   .form {
-    width: 250px;
+    width: 16rem;
   }
 }
